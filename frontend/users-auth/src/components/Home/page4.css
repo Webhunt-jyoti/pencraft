@@ -1,0 +1,186 @@
+/* Page4.css */
+.page4-container {
+    width: 100%;
+    max-width: 100%;
+    
+    padding: 20px;
+    background:linear-gradient(360deg,rgb(4, 87, 123),rgb(204, 18, 207),rgb(249, 245, 27));
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 150px auto;
+
+  }
+  
+  .page4-title {
+    font-size: 24px;
+    color: #060505;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .upi-image {
+    max-width: 40%;
+    height: 40%;
+    margin-bottom: 20px;
+    margin: auto;
+    margin: 15px auto;
+  }
+  
+  .page4-subtitle {
+    font-size: 20px;
+    color: #030202;
+    margin-bottom: 30px;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 16px;
+    color: #efeded;
+    margin-bottom: 5px;
+  }
+  
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .form-textarea {
+    resize: vertical;
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: #f2ebeb;
+    border: none;
+    padding: 15px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+
+
+
+  /* CopyBox.css */
+
+.copy-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.page4-title p{
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+
+.upi-id {
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  text-overflow: ellipsis; 
+}
+
+.copy-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 10px 0;
+}
+
+.copy-btn:hover {
+  background-color: #0056b3;
+}
+
+.copy-message {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #28a745;
+}
+.mailme{
+  color: white;
+  margin-top: 20px;
+  font-weight: 500;
+
+}
+
+
+
+
+
+  
+  @media (max-width: 768px) {
+    .page4-container {
+      padding: 15px;
+      overflow: auto;
+    }
+  
+    .form-group {
+      max-width: 100%;
+    }
+  
+    .submit-button {
+      width: 100%;
+    }
+    .mailme{
+      color: white;
+      margin-top: 15px;
+      font-size: 15px;
+      
+    
+    }
+  }
+  @media (max-width: 388px) {
+    .upi-id{
+      font-size: 15px;
+      font-weight: 400;
+      text-align: left;
+    }
+    .mailme{
+      color: white;
+      margin-top: 15px;
+      font-size: 10px;
+      
+    
+    }
+  }
+  @media (max-width: 240px) {
+    .upi-id{
+      font-size: 10px;
+      font-weight: 200;
+      text-align: left;
+    }
+  }
+  

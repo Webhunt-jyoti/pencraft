@@ -1,0 +1,68 @@
+.home-pg1{
+    height: 40vh;
+}
+/* home.css */
+.page{
+  background-color: #051527;
+}
+
+.head-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Space between items */
+    padding: 20px;
+    background-color: #312f2f; /* Light background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .head-box .create {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent */
+  }
+  
+  .head-box .create div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #131b23; /* Primary color */
+    color: #ede6e6; /* White text color */
+    border-radius: 8px; /* Rounded corners for each box */
+    padding: 20px;
+    width: 100%;
+    min-width: 400px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+  
+  .head-box .create div:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+  }
+  
+  @media (max-width: 768px) {
+    .head-box {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center; /* Center items horizontally */
+    }
+  
+    .head-box .create div {
+      width: 20%; 
+      width:100%;
+      min-width: 200px;
+      padding: 5px;
+    }
+    .head-box .create div h1 {
+     font-size: 15px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .head-box {
+      flex-direction: column;
+      gap: 15px; /* Space between items on smaller screens */
+    }
+  }
+  

@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+}
+.flex-col{
+    margin: 0;
+    padding: 0;
+  
+}
+/* Base Styles */
+/* .nav-box{
+    background:linear-gradient(220deg,rgb(18, 18, 56) ,rgb(10, 51, 56));
+    height: 100vh;
+    position:absolute;
+    width: 100%;
+    z-index: -100;
+} */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background:linear-gradient(360deg,rgb(4, 36, 45),rgb(16, 44, 228)); 
+    color: rgb(243, 239, 239);
+    border-bottom: 1px solid #333; /* Subtle border */
+    z-index: 1000; /* Ensure it's above other content */
+    /* margin-bottom: 500px; */
+   
+   
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.logo {
+    height: 40px; /* Adjust logo size */
+}
+
+.title {
+    font-size: 1.5rem;
+    color: #bc9317;
+    margin-left: 0.5rem;
+    font-weight: 700;
+}
+
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    color:rgb(250, 238, 238);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-button {
+        display: block;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 63px;
+        right: 0;
+        background-color: white;
+        width: 80%;
+        margin-left:50px ;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        padding: 1rem;
+        color: black;
+    }
+
+    .nav-links.open {
+        transform: translateX(0);
+    }
+    .nav-links.close {
+        transform: translateX(-180);
+    }
+
+    .nav-item {
+        padding: 1rem;
+        text-align: center;
+        color: black;
+    }
+}

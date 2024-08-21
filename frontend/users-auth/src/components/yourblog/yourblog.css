@@ -1,0 +1,26 @@
+.alldata{
+    margin-top: 100px;
+   
+}
+.page2{
+    background-color: black;
+    color: white;
+}
+
+.delete-topic-btn {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top:20px ;
+    /* position: absolute; */
+    bottom: 1px;
+    right: 1rem;
+}
+
+.delete-topic-btn:hover {
+    background: #c82333;
+}

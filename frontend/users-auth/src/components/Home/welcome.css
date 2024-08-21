@@ -1,0 +1,156 @@
+/* General Styling */
+
+  
+  .welcome-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 100px;
+  }
+  
+  /* Welcome Box */
+  .welcome-box {
+    text-align: center;
+    margin: 50px 0;
+  }
+  
+  .main-heading {
+    font-size: 2.5rem;
+    color: #444;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out;
+  }
+  
+  .sign-in-btn {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .sign-in-btn:hover {
+    background-color: #574b90;
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.6);
+  }
+  
+  .sign-in-btn:focus {
+    outline: none;
+  }
+  
+  /* Video and Text Section */
+  .vdo-text-box {
+    display: flex;
+    align-items: center;
+    margin: 50px 0;
+    position: relative;
+  }
+  
+  .vdo {
+    flex: 1;
+    max-width: 60%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .vdo video {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  
+  .vdo-text {
+    flex: 1;
+    margin-left: -150px; /* Overlap the text slightly over the video */
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .vdo-text h1 {
+    margin: 10px 0;
+    font-weight: 600px;
+    
+    font-size: 40px;
+    color: #0a5e66;
+  }
+  
+  /* Carousel Section */
+  .carousel {
+    float: right;
+    margin-bottom: 100px;
+    
+  }
+  .carousel img{
+   border-radius: 15px;
+    
+  }
+  .noticee {
+    text-align: center;
+    font-size: 25px;
+    color: black;
+    font-weight: 600px;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .main-heading {
+      font-size: 2rem;
+    }
+  
+    .sign-in-btn {
+      padding: 12px 25px;
+      font-size: 0.9rem;
+    }
+  
+    .vdo-text-box {
+      flex-direction: column;
+      margin-left: 0;
+    }
+  
+    .vdo-text {
+      margin-left: 0;
+      margin-top: -50px;
+      text-align: center;
+    }
+  
+    .vdo-text h1 {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .main-heading {
+      font-size: 1.8rem;
+    }
+  
+    .sign-in-btn {
+      padding: 10px 20px;
+      font-size: 0.8rem;
+    }
+  
+    .vdo-text h1 {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Keyframe Animations */
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
