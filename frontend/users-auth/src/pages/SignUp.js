@@ -39,9 +39,16 @@ function SignUp() {
     };
 
     const validateEmailFormat = (email) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
         return emailRegex.test(email);
     };
+    
+    const validateEmailDomain = (email) => {
+        const validDomains = ['gmail.com', 'yahoo.com', 'outlook.com'];
+        const domain = email.split('@')[1];
+        return validDomains.includes(domain);
+    };
+    
 
     const handleSubmit = async (event) => {
         setLoading(true);
@@ -49,7 +56,7 @@ function SignUp() {
             event.preventDefault();
 
             // Validate email format
-            if (!validateEmailFormat(email)) {
+            if (!validateEmailFormat(email) || !validateEmailDomain(email)) {
                 alert('Please enter a valid email address.');
                 setLoading(false);
                 return;
@@ -88,7 +95,7 @@ function SignUp() {
         <div className='w-full h-screen flex justify-center'>
             <div className='w-full h-screen bg-[#1a1a1a] text-white flex justify-center items-center p-4'>
                 <form
-                    className='text-center border rounded-lg w-full max-w-md p-6 bg-gray-800'
+                    className='text-center border rounded-lg w-full max-w-md p-6 bg-gray-800 signbox'
                     onSubmit={handleSubmit}
                 >
                     {/* Email Input */}

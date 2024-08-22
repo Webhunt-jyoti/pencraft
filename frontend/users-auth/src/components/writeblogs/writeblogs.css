@@ -8,6 +8,7 @@
     font-size: 50px;
     font-weight: 600;
     margin: 20px 0 ;
+    
   }
   
   
@@ -26,6 +27,7 @@
   }
   .form-group label {
    font-size: 25px;
+   color: rgb(78, 224, 250);
   }
   
   .formtext {

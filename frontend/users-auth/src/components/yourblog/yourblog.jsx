@@ -51,11 +51,14 @@ const Yourblog = () => {
         try {
             const response = await axios.post(`${render_url}/api/v1/deletetopic`, { topic, authorId: user.id });
             const response1 = await axios.post(`${render_url}/api3/v3/deletetopicc`, { topic });
-            if (response.status === 200) {
+            const response2 = await axios.post(`${render_url}/api2/v2/deletepaidtopicbyuser`, { topic });
+
+            if (response.status === 200 && response1.status === 200  && response2.status === 200 ) {
                 alert('Topic deleted successfully');
                 // Refresh the blog list
                 setBlogs(blogs.filter(blog => blog.topic !== topic));
             }
+           
         } catch (error) {
             console.error('Error deleting topic:', error);
             alert('Failed to delete topic');

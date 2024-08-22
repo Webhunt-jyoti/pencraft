@@ -43,10 +43,10 @@ app.use(cors());
 // POST REGISTER
 router.post('/register', async (req, res) => {
   try {
-    const paidTopics = ["default"];
+    // const paidTopics = ["default"];
     const { email, username, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ email, username, password: hashedPassword, paidTopics });
+    const newUser = new User({ email, username, password: hashedPassword });
     await newUser.save();
     res.status(200).json({ message: 'User created successfully' });
   } catch (error) {
@@ -140,22 +140,22 @@ router.post('/forgot-password', async (req, res) => {
   const user = await User.findOne({ email });
 
   if (!user) {
-      return res.status(400).send('User with this email does not exist');
+    return res.status(400).send('User with this email does not exist');
   }
 
   // const token = crypto.randomBytes(32).toString('hex');
-  const token =jwt.sign({ userId: user._id }, SECRET_KEY, { expiresIn: '1hr' });
+  const token = jwt.sign({ userId: user._id }, SECRET_KEY, { expiresIn: '1hr' });
   user.resetPasswordToken = token;
   user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
   await user.save();
 
   const data = {
-      from: 'jyotiranjanmahapatra899@gmail.com',
-      to: user.email,
-      subject: 'Password Reset',
-      text: `Click the following link to reset your password:\n\nhttp://localhost:3001/reset-password/${token}`,
+    from: 'jyotiranjanmahapatra899@gmail.com',
+    to: user.email,
+    subject: 'Password Reset',
+    text: `Click the following link to reset your password:\n\nhttp://localhost:3001/reset-password/${token}`,
   };
- 
+
   try {
     await mg.messages.create(process.env.MAILGUN_DOMAIN, data);
     res.status(200).json({ message: 'Notification sent successfully!' });
@@ -179,12 +179,12 @@ router.post('/reset-password', async (req, res) => {
   const { token, password } = req.body;
 
   const user = await User.findOne({
-      resetPasswordToken: token,
-      resetPasswordExpires: { $gt: Date.now() },
+    resetPasswordToken: token,
+    resetPasswordExpires: { $gt: Date.now() },
   });
 
   if (!user) {
-      return res.status(400).send('Password reset token is invalid or has expired');
+    return res.status(400).send('Password reset token is invalid or has expired');
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -391,16 +391,38 @@ router.post('/addTopic', async (req, res) => {
 //fetch on topics
 //fetch allpaid topics
 router.get('/getonTopics/:id', async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   try {
     // Fetch all users
     const users = await User.findById(id);
 
-    
-    res.status(200).json({ data:  users } );
+
+    res.status(200).json({ data: users });
   } catch (error) {
     res.status(500).json({ message: 'Error fetching paid topics', error });
   }
+})
+//delete paid topic
+router.post('/deletepaidtopicbyuser', async (req, res) => {
+  const { topic } = req.body;
+  console.log(topic)
+  try {
+
+
+
+    const result = await User.updateMany(
+      {},
+      { $pull: { paidTopics: topic } }
+    );
+    res.status(200).json({ message: "delete paid topic succesfully" })
+
+    // console.log(`${result.modifiedCount} documents were updated.`);
+  }
+  catch (error) {
+    res.status(500).json({ message: "error in delete paidtopic" })
+  }
+ 
+
 })
 
 

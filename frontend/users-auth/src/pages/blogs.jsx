@@ -6,8 +6,8 @@ import Chatgpt from '../components/chatgpt/chatgpt';
 import { useUser } from '../components/contexts/UserContext';
 
 const EXCLUDED_TOPICS = process.env.REACT_APP_EXCLUDED_TOPICS?.split(',') || [];
-// const render_url ="https://blognest-or4v.onrender.com";
-const render_url =" http://localhost:3000"
+const render_url ="https://blognest-or4v.onrender.com";
+// const render_url =" http://localhost:3000"
 
 
 
@@ -119,7 +119,7 @@ const Blogs = () => {
                 {groupByTopic(filteredBlogs)[topic].slice(0, 1).map((item, j) => (
                   <div className='page2-box' key={j}>
                     <h2>{item.title}</h2>
-                    <p>{item.desc.slice(0, 200)}...</p>
+                    <p>{item.desc.slice(0, 20)}...</p>
                   </div>
                 ))}
                 <Link to={`/topic/${topic}/${key}`} className='read-more-link'>
@@ -162,7 +162,7 @@ const Blogs = () => {
                 {groupByTopic(filteredBlogs)[topic].slice(0, 2).map((item, j) => (
                   <div className='page2-box' key={j}>
                     <h2>{item.title}</h2>
-                    <p>{item.desc.slice(0, 200)}...</p>
+                    <p>{item.desc.slice(0, 20)}...</p>
                   </div>
                 ))}
 

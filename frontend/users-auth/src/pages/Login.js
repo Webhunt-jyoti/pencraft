@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
 
 
-const render_url =" http://localhost:3000"
-// const render_url ="https://blognest-or4v.onrender.com"
+// const render_url =" http://localhost:3000"
+const render_url ="https://blognest-or4v.onrender.com"
 
 
 function Login() {
@@ -45,7 +45,7 @@ function Login() {
             setLoading(false); 
         }
         finally {
-            
+            setLoading(false); 
             console.log('Loading state set to false');// Stop loading
           }
     };
@@ -54,7 +54,7 @@ function Login() {
         <div className='w-full h-screen flex justify-center'>
             <div className='w-[100%] h-[100%] bg-[#1a1a1a] text-white flex justify-center items-center'>
                 <form 
-                    className='text-center h-auto p-5 mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl form'
+                    className='text-center h-auto p-5 mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl form signbox'
                     onSubmit={handleLogin}
                 >
                     <label className='block text-left'>Email</label>
@@ -82,7 +82,7 @@ function Login() {
                     </button>
                     <p>Dont't have a account ?  <Link to="/signup"  className='signup-link'>Sign up</Link> </p>
                     <p className='mt-4'><Link to="/forgot-password" className='forgot-password-link'>Forgot Password?</Link></p>
-                    <p>If you can't reset password  , please Mail to - jyotiranjanmahapatra377@gmail.com</p>
+                    <p>If you can't reset password  , please Mail to - pencraft98@gmail.com</p>
                 </form>
             </div>
         </div>

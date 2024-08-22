@@ -90,7 +90,7 @@ function Purchase() {
                         ))}
                         
                        
-                        <Link to={`/topic/${topic}/${key}`} className='read-more-link'>View All Blogs on {topic}</Link>
+                        <Link to={`/topic/${topic}/${key}`} className='read-more-link'>View All Blogs on {topic.split("@")[0]}</Link>
                         {/* <Link to={`/writeblogs/${topic}`} className='add-blog-link'>Add Blog to {topic}</Link> */}
                     </div>
                 ))

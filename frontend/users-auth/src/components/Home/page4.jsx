@@ -4,6 +4,7 @@ import img from './qrcode.jpg'
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
+import { ClipLoader } from 'react-spinners';
 
 
 const render_url ="https://blognest-or4v.onrender.com"
@@ -19,6 +20,7 @@ const Page4 = () => {
   const [email, setEmail] = useState('');
   const [course, setCourse] = useState('');
   const [polling, setPolling] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [replyReceived, setReplyReceived] = useState(false);
   const [checkingReply, setCheckingReply] = useState(false);
 
@@ -48,11 +50,14 @@ const Page4 = () => {
 
 
   const handleSubmit = async (e) => {
+    setLoading(true); // Start loading
     e.preventDefault();
     try {
       // Send data to the backend
       await axios.post(`${render_url}/api2/v2/notify`, { email, course ,id});
-      alert('Notification sent successfully!');
+      alert('You will get your blog within 12hr ,check your purchase section or inbox in mail');
+
+      setLoading(false); 
       setCourse("")
       setEmail("")
       // setCheckingReply(true);
@@ -70,6 +75,10 @@ const Page4 = () => {
     } catch (error) {
       console.error('Error sending notification', error);
       alert('Failed to send notification.');
+      setLoading(false); 
+    }
+    finally{
+      setLoading(false);
     }
   };
 
@@ -111,7 +120,7 @@ const Page4 = () => {
       {copySuccess && <p className='copy-message'>{copySuccess}</p>}
       
       
-      <h2 className="page4-subtitle">Please Fill the Details...</h2>
+      <h2 className="page4-subtitle">Please Fill the Details ,otherwise blog can not be given ,it is mandatory</h2>
       <form className="form-container" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="title">Write your accurate course name with no typo</label>
@@ -138,8 +147,12 @@ const Page4 = () => {
             rows="10"
           ></textarea>
         </div>
-        <button className="submit-button" type="submit">Submit</button>
-        <h1 className='mailme'>If you are facing any issue with sending mail with above then,mail me directly with this email id - jyotiranjanmahapatra899@gmail.com</h1>
+        <button className="submit-button" type="submit" onClick={handleSubmit} disabled={loading}>
+                {loading ? <ClipLoader color="#ffffff" size={20} /> : 'submit'}
+            </button>
+        {/* <button className="submit-button" type="submit">Submit</button> */}
+       
+        <h1 className='mailme'>If you are facing any issue with sending mail with above then,mail me directly with this email id - pencraft98@gmail.com</h1>
       </form>
     </div>
   );

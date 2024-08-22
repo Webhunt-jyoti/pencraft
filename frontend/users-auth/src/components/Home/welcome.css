@@ -6,6 +6,8 @@
     margin: 0 auto;
     padding: 20px;
     margin-top: 100px;
+    background: linear-gradient(360deg,white,rgba(14, 211, 205, 0.6),pink);
+    height: fit-content;
   }
   
   /* Welcome Box */
@@ -46,6 +48,8 @@
   /* Video and Text Section */
   .vdo-text-box {
     display: flex;
+    flex-direction: column;
+    gap: 50px;
     align-items: center;
     margin: 50px 0;
     position: relative;
@@ -53,7 +57,7 @@
   
   .vdo {
     flex: 1;
-    max-width: 60%;
+    max-width: 100%;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -67,7 +71,7 @@
   
   .vdo-text {
     flex: 1;
-    margin-left: -150px; /* Overlap the text slightly over the video */
+    /* margin-left: -150px; */
     color: white;
     font-size: 1.5rem;
     font-weight: bold;

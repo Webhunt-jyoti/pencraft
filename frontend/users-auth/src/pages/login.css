@@ -16,4 +16,14 @@
 .signup-link{
     color: aqua;
 }
+input{
+    color: white;
+}
+w-full{
+    color: white;
+    background-color: aqua;
+}
+.signbox input{
+ color: white;
+}
 

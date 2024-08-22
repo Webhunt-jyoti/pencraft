@@ -48,6 +48,7 @@ label {
     margin-bottom: 0.5rem;
     font-size: 1rem;
     transition: border-color 0.3s ease-in-out;
+    
 }
 
 .input-group input:focus {
@@ -102,6 +103,9 @@ hr {
 
 .delete-topic button:hover {
     background: #c82333;
+}
+input{
+    color: black;
 }
 
 @media (max-width: 768px) {

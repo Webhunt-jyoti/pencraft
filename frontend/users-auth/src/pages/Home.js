@@ -17,7 +17,7 @@ function Home() {
   return (
     <div className='page container'>
       <div className='noti'>
-        <p>Flat 25% sale is started  .  Buy two get one free</p>
+        <p>Flat 25% sale is started . Make memories share memories</p>
       </div>
 
       <Page1 />

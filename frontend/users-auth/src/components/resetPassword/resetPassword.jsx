@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 // import './reset-password.css';
 
-// const render_url = "https://blognest-or4v.onrender.com";
-const render_url =" http://localhost:3000"
+const render_url = "https://blognest-or4v.onrender.com";
+// const render_url =" http://localhost:3000"
 
 function ResetPassword() {
     const [password, setPassword] = useState('');

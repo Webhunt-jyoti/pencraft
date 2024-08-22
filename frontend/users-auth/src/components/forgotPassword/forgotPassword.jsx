@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 // import './forgot-password.css';
 
-// const render_url = "https://blognest-or4v.onrender.com";
-const render_url =" http://localhost:3000"
+const render_url = "https://blognest-or4v.onrender.com";
+// const render_url =" http://localhost:3000"
 
 function ForgotPassword() {
     const [email, setEmail] = useState('');

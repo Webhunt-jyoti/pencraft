@@ -7,7 +7,7 @@ import { useUser } from '../contexts/UserContext';
 
 
 // const render_url =" http://localhost:3000"
-const render_url ="https://blognest-or4v.onrender.com"
+const render_url ="https://blognest-or4v.onrender.com"  
 
 
 

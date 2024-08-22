@@ -138,7 +138,7 @@ return (
                         {groupedBlogs[topic].slice(0, 2).map((item, j) => (
                             <div className='page2-box' key={j}>
                                 <h2>{item.title}</h2>
-                                <p>{item.desc.slice(0, 200)}...</p>
+                                <p>{item.desc.slice(0, 20)}...</p>
                             </div>
                         ))}
                         <Link to={`/topic/${topic}/${key}`} className='read-more-link'>
@@ -151,7 +151,7 @@ return (
                         {groupedBlogs[topic].slice(0, 2).map((item, j) => (
                             <div className='page2-box' key={j}>
                                 <h2>{item.title}</h2>
-                                <p>{item.desc.slice(0, 200)}...</p>
+                                <p>{item.desc.slice(0, 20)}...</p>
                             </div>
                         ))}
                         <Link to='/page3'>

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import img1 from "./slide1.jpg";
 import img2 from "./slide2.jpg";
 import img3 from "./slide3.jpg";
-import vdo from "./vdo.mp4";
+import vdo from "./Your paragraph text.mp4";
+import vdo1 from "./welcomevdo.mp4";
 
 const Welcome = () => {
   return (
@@ -18,11 +19,14 @@ const Welcome = () => {
 
       <div className="vdo-text-box">
         <div className="vdo">
+          <video src={vdo1} autoPlay={true} loop muted></video>
+        </div>
+        <div className="vdo">
           <video src={vdo} autoPlay={true} loop muted></video>
         </div>
         <div className="vdo-text">
-          <h1>Creativity is the power to connect the seemingly unconnected</h1>
-          <h1>Turning imagination into reality</h1>
+          <h1>Start earning by posting any kind of blog but not Anti-Social</h1><br />
+          <h1>Start Blogging,Start Earning Here</h1>
         </div>
       </div>
 
@@ -49,7 +53,7 @@ const Welcome = () => {
       </div>
       <div >
       <h1 className="noticee">Notice</h1>
-      <p className="noticee">Website is on trial period</p>
+      <p className="noticee">No updates </p>
       </div>
       
     </div>

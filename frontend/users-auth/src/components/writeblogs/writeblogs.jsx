@@ -23,6 +23,7 @@ const WriteBlogsAndUpdate = ({ titlename }) => {
     const [blog, setBlog] = useState({ title: "", desc: "", topic: topic || "" });
     const [loading, setLoading] = useState(false);
     const [loadingg, setLoadingg] = useState(false);
+   
 
     useEffect(() => {
         const fetch = async () => {
@@ -33,6 +34,7 @@ const WriteBlogsAndUpdate = ({ titlename }) => {
                 }
             } catch (error) {
                 alert("Something went wrong");
+
             }
         };
         fetch();
@@ -57,10 +59,12 @@ const WriteBlogsAndUpdate = ({ titlename }) => {
                     setBlog({ title: "", desc: "", topic: topic || "" });
                     alert("blog send succesfully")
                     setLoading(false); 
+                    history("/blogs")
 
                 }
                 else {
                     alert("Please fill all fields");
+                    setLoadingg(false);
                 }
 
 
@@ -99,9 +103,11 @@ const WriteBlogsAndUpdate = ({ titlename }) => {
             alert("succesfully lock and publish");
             setBlog({ title: "", desc: "", topic: topic || "" });
             setLoadingg(false); // Start loading
+            history("/blogs")
         } catch (error) {
             // Handle error (e.g., show an error message)
-            alert("Something went wrong while updating paid topics");
+            alert("Something went wrong while updating paid topics or please add all fields");
+            setLoadingg(false);
         }
         finally{
             setLoadingg(false); // Start loading
@@ -134,7 +140,7 @@ const WriteBlogsAndUpdate = ({ titlename }) => {
                         onChange={change}
                         placeholder='Write Description'
                         cols="30"
-                        rows="10"
+                        rows="20"
                     ></textarea>
                 </div>
                 <div className='user-info'>
@@ -144,7 +150,7 @@ const WriteBlogsAndUpdate = ({ titlename }) => {
 
                         1.If you click write : It will be considered as unpaid blog and it will be visible publicly. <br />
                         2.If you click Lock and publish : It will be considered as paid blog and You  should contact admin
-                        to fix the price of the blog ,Until then no one can access to your blog . It will be lock.  <br />
+                        through below contact info to fix the price of the blog ,Until then no one can access to your blog . It will be lock.  <br />
         
                         3. All blog would be checked by Admin , you should make your blog likewise so that others will not be harm any type. <br />
                         4. After succesful checked by Admin the amount will be fix  <br />
@@ -152,7 +158,7 @@ const WriteBlogsAndUpdate = ({ titlename }) => {
                         6. If you don't want to publish your blog now ,you can click lock and publish button ,and later time 
                         you can edit it also by clicking view blogs link in your account section.
 
-                        ***     Admin contact info  : Gmail id jyotiranjanmahapatra377@gmail.com    ***  <br />
+                        ***     Admin contact info  : Gmail id : pencraft98@gmail.com    ***  <br />
                         ***     For any issue contact Admin ,our service are very Quick touching    ***  <br />
                                                ***** Happy Blogging **** <br />
                     </p>
