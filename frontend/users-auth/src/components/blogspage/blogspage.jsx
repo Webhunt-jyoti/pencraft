@@ -46,6 +46,24 @@ const BlogPage = () => {
             alert('Failed to delete blog');
         }
     };
+    const handleImageDelete = async (imageUrlToDelete) => {
+        try {
+            const updatedImageUrls = blog.imageUrls.filter(imageUrl => imageUrl !== imageUrlToDelete);
+
+            const response = await axios.put(`${render_url}/api/v1/updateblog/${id}`, {
+                ...blog,
+                imageUrls: updatedImageUrls
+            });
+
+            if (response.status === 200) {
+                setBlog(response.data.blog);
+                alert('Image deleted successfully');
+            }
+        } catch (error) {
+            console.error('Error deleting image:', error);
+            alert('Failed to delete image');
+        }
+    };
 
     return (
         <div className="blog-page-container">
@@ -56,7 +74,12 @@ const BlogPage = () => {
                     <p className="blog-date">Posted on: {new Date(blog.createdAt).toLocaleDateString()}</p>
                     <div className="blog-images">
                         {blog.imageUrls && blog.imageUrls.map((imageUrl, index) => (
-                            <img key={index} src={`${render_url}${imageUrl}`} alt={`Blog image ${index}`} className="blog-image" />
+                            <div key={index} className="image-container">
+                                <img src={`${render_url}${imageUrl}`} alt={`Blog image ${index}`} className="blog-image" />
+                                <button onClick={() => handleImageDelete(imageUrl)} className="delete-image-btn">
+                                    <FaTrashAlt />
+                                </button>
+                            </div>
                         ))}
                     </div>
 
