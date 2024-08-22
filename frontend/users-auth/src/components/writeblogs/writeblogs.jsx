@@ -5,7 +5,7 @@ import { useUser } from '../contexts/UserContext';
 import './writeblogs.css';
 import { ClipLoader } from 'react-spinners';
 
-const render_url = "https://your-backend-url.com"; 
+const render_url ="https://blognest-or4v.onrender.com" 
 // const render_url =" http://localhost:3000"
 
 const WriteBlogsAndUpdate = ({ titlename }) => {
@@ -168,13 +168,14 @@ const WriteBlogsAndUpdate = ({ titlename }) => {
 
                         1.If you click write : It will be considered as unpaid blog and it will be visible publicly. <br />
                         2.If you click Lock and publish : It will be considered as paid blog and You  should contact admin
-                        through below contact info to fix the price of the blog ,Until then no one can access to your blog . It will be lock.  <br />
+                        through below contact info only using your registered gmail id(the gmail id which is used to create your that blog you locked) ,except that will not be considered , to fix the price of the blog ,Until then no one can access to your blog . It will be locked.  <br />
         
                         3. All blog would be checked by Admin , you should make your blog likewise so that others will not be harm any type. <br />
                         4. After succesful checked by Admin the amount will be fix  <br />
                         5. You can also add your blog in any category you want . <br />
                         6. If you don't want to publish your blog now ,you can click lock and publish button ,and later time 
-                        you can edit it also by clicking view blogs link in your account section.
+                        you can edit it also by clicking view blogs link in your account section. <br />
+                        7. Using your gmail id , meaasge your username and name of that blog you want to fix the price .After that ,Admin will contact you.
 
                         ***     Admin contact info  : Gmail id : pencraft98@gmail.com    ***  <br />
                         ***     For any issue contact Admin ,our service are very Quick touching    ***  <br />

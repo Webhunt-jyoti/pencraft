@@ -137,6 +137,8 @@ function SignUp() {
                         {loading ? <ClipLoader color="#ffffff" size={20} /> : 'Sign up'}
                     </button>
                     <p>Already have a account? <Link to="/login" className='signup-link'>Log in</Link></p>
+                    <p>Don't give sign up details to anyone</p>
+
                 </form>
             </div>
         </div>
