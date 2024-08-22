@@ -135,6 +135,12 @@
   .delete-topic-btn{
     background-color: #0056b3;
   }
+  .blog-image {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto;    /* Maintain aspect ratio */
+    display: block;  /* Prevent inline display issues */
+  }
+  
   
 
 @media (max-width: 768px) {

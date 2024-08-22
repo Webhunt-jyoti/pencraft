@@ -13,6 +13,7 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    imageUrls: { type: [String ]},
     authorId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

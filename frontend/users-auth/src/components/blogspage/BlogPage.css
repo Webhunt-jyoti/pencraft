@@ -68,6 +68,13 @@
 .delete-btn:hover {
     background-color: #e53935;
 }
+
+
+.blog-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
   /* Responsive Design */
   @media (max-width: 768px) {
     .blog-title {

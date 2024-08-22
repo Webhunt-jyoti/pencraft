@@ -1,12 +1,17 @@
 const router = require("express").Router();
 const blogs = require("../models/blogs");
+const multer = require('multer');
+const path = require('path');
+
+const fs = require('fs');
 
 
 // Create a new blog
 router.post('/post', async (req, res) => {
     try {
-        const { title, desc, topic, authorId } = req.body;
-        const newPost = new blogs({ title, desc, topic, authorId });
+        
+        const { title, desc, topic, authorId ,imageUrls} = req.body;
+        const newPost = new blogs({ title, desc, topic,imageUrls, authorId });
         await newPost.save();
         res.status(200).json({ message: 'Data saved successfully' });
     } catch (error) {
@@ -99,8 +104,8 @@ router.get("/getblog/:id",async (req,res)=>{
 router.put("/updateblog/:id",async (req,res)=>{
     try {
        const {id} = req.params;
-       const{title,desc} = req.body;
-       await blogs.findByIdAndUpdate(id ,{title,desc});
+       const{title,desc,imageUrls} = req.body;
+       await blogs.findByIdAndUpdate(id ,{title,desc,imageUrls});
         res.status(200).json({message: "data update sucessfully"});
 
     } catch (error) {
@@ -203,6 +208,54 @@ router.delete('/deleteblog/:id', async (req, res) => {
         res.status(500).json({ message: 'Failed to delete blog' });
     }
 });
+
+
+
+
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         const uploadPath = path.join(__dirname, '..', 'uploads'); // Adjusting path if necessary
+//         console.log("Upload Path:", uploadPath); // Log the upload path
+//         cb(null, uploadPath);
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, Date.now() + path.extname(file.originalname));
+//     },
+// });
+
+// const upload = multer({ storage });
+
+
+// router.post('/upload', upload.single('image'), (req, res) => {
+//     if (!req.file) {
+//         return res.status(400).json({ error: 'No file uploaded' });
+//     }
+//     const imageUrl = `/uploads/${req.file.filename}`;
+//     res.status(200).json({ imageUrl });
+// });
+
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/');
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({ storage });
+
+// Handle multiple image uploads
+router.post('/upload', upload.array('images'), (req, res) => {
+    try {
+        const imageUrls = req.files.map(file => `/uploads/${file.filename}`);
+        res.json({ imageUrls });
+    } catch (error) {
+        res.status(500).json({ error: 'Something went wrong during file upload' });
+    }
+});
+
   
 
 module.exports = router;

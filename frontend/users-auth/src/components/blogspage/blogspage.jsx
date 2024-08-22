@@ -54,6 +54,11 @@ const BlogPage = () => {
                     <h1 className="blog-title">{blog.title}</h1>
                     <p className="blog-desc">{blog.desc}</p>
                     <p className="blog-date">Posted on: {new Date(blog.createdAt).toLocaleDateString()}</p>
+                    <div className="blog-images">
+                        {blog.imageUrls && blog.imageUrls.map((imageUrl, index) => (
+                            <img key={index} src={`${render_url}${imageUrl}`} alt={`Blog image ${index}`} className="blog-image" />
+                        ))}
+                    </div>
 
                     {(key === "x1y2z3" || (user.email === "khadushboy@gmail.com" && user.id === "66c42a21c9862ecb0dea7cb2")) &&
                             
@@ -66,6 +71,11 @@ const BlogPage = () => {
                             <button onClick={handleDelete} className="delete-btn">
                                 <FaTrashAlt />
                             </button>
+                            {/* <div className="blog-images">
+                        {blog.imageUrls && blog.imageUrls.map((imageUrl, index) => (
+                            <img key={index} src={`${render_url}${imageUrl}`} alt={`Blog image ${index}`} className="blog-image" />
+                        ))}
+                    </div> */}
                           
                         </div>
                        
